@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descargador de videos de YouTube 100% gratis. Descarga en la mejor calidad: 1080p, 720p, 480p o solo audio MP3. Rápido, seguro y sin límites.">
+    <meta name="keywords" content="descargar youtube, youtube downloader, mp3, mp4, gratis, 1080p, 720p">
+    <meta name="author" content="Holman Chila">
+    <title>YT Downloader Pro — Descarga Videos de YouTube Gratis</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <!-- Background animated gradient orbs -->
+    <div class="bg-orbs" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" id="nav-logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span>YT Downloader <span class="logo-pro">PRO</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" id="nav-home">Inicio</a></li>
+                <li><a href="#downloader" class="nav-link" id="nav-downloader">Descargar</a></li>
+                <li><a href="#features" class="nav-link" id="nav-features">Funciones</a></li>
+                <li><a href="#how-it-works" class="nav-link" id="nav-how">Cómo Funciona</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-links">
+            <li><a href="#home" class="mobile-link">Inicio</a></li>
+            <li><a href="#downloader" class="mobile-link">Descargar</a></li>
+            <li><a href="#features" class="mobile-link">Funciones</a></li>
+            <li><a href="#how-it-works" class="mobile-link">Cómo Funciona</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-badge fade-in">
+                    <span class="badge-dot"></span>
+                    <span>100% Gratis · Sin límites · Open Source</span>
+                </div>
+                <h1 class="hero-title fade-in delay-1">
+                    Descarga Videos de<br>
+                    <span class="gradient-text">YouTube</span> al Instante
+                </h1>
+                <p class="hero-subtitle fade-in delay-2">
+                    La herramienta más potente para descargar videos en cualquier calidad. 
+                    Desde 480p hasta la mejor calidad disponible, incluyendo solo audio en MP3.
+                </p>
+                <div class="hero-actions fade-in delay-3">
+                    <a href="#downloader" class="btn btn-primary" id="btn-start">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Comenzar a Descargar
+                    </a>
+                    <a href="https://github.com" class="btn btn-secondary" id="btn-github" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        Ver en GitHub
+                    </a>
+                </div>
+                <div class="hero-stats fade-in delay-4">
+                    <div class="stat">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Calidades</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="100">0</span><span class="stat-percent">%</span>
+                        <span class="stat-label">Gratis</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="0">0</span>
+                        <span class="stat-label">Anuncios</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Downloader Section -->
+        <section class="downloader" id="downloader">
+            <div class="section-container">
+                <div class="section-header fade-in">
+                    <span class="section-tag">Descargador</span>
+                    <h2 class="section-title">Pega tu enlace y <span class="gradient-text">descarga</span></h2>
+                    <p class="section-subtitle">Ingresa la URL del video de YouTube que deseas descargar</p>
+                </div>
+
+                <div class="downloader-card fade-in delay-1">
+                    <!-- URL Input -->
+                    <div class="input-group" id="url-input-group">
+                        <div class="input-wrapper">
+                            <svg class="input-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                            <input 
+                                type="url" 
+                                id="url-input" 
+                                class="url-input" 
+                                placeholder="https://www.youtube.com/watch?v=..." 
+                                autocomplete="off"
+                            >
+                            <button class="btn-paste" id="btn-paste" title="Pegar desde portapapeles">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Quality Selection -->
+                    <div class="quality-section">
+                        <h3 class="quality-title">Elige la calidad</h3>
+                        <div class="quality-grid" id="quality-grid">
+                            <label class="quality-option selected" data-quality="best">
+                                <input type="radio" name="quality" value="best" checked>
+                                <div class="quality-card">
+                                    <div class="quality-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                        </svg>
+                                    </div>
+                                    <span class="quality-name">Mejor Calidad</span>
+                                    <span class="quality-desc">Sin pérdida</span>
+                                    <span class="quality-badge">Recomendado</span>
+                                </div>
+                            </label>
+                            <label class="quality-option" data-quality="1080">
+                                <input type="radio" name="quality" value="1080">
+                                <div class="quality-card">
+                                    <div class="quality-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                    </div>
+                                    <span class="quality-name">1080p</span>
+                                    <span class="quality-desc">Full HD</span>
+                                </div>
+                            </label>
+                            <label class="quality-option" data-quality="720">
+                                <input type="radio" name="quality" value="720">
+                                <div class="quality-card">
+                                    <div class="quality-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                    </div>
+                                    <span class="quality-name">720p</span>
+                                    <span class="quality-desc">HD</span>
+                                </div>
+                            </label>
+                            <label class="quality-option" data-quality="480">
+                                <input type="radio" name="quality" value="480">
+                                <div class="quality-card">
+                                    <div class="quality-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                            <line x1="8" y1="21" x2="16" y2="21"/>
+                                            <line x1="12" y1="17" x2="12" y2="21"/>
+                                        </svg>
+                                    </div>
+                                    <span class="quality-name">480p</span>
+                                    <span class="quality-desc">SD</span>
+                                </div>
+                            </label>
+                            <label class="quality-option" data-quality="mp3">
+                                <input type="radio" name="quality" value="mp3">
+                                <div class="quality-card">
+                                    <div class="quality-icon">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M9 18V5l12-2v13"/>
+                                            <circle cx="6" cy="18" r="3"/>
+                                            <circle cx="18" cy="16" r="3"/>
+                                        </svg>
+                                    </div>
+                                    <span class="quality-name">Solo Audio</span>
+                                    <span class="quality-desc">MP3 192kbps</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Trim Section -->
+                    <div class="trim-section">
+                        <div class="trim-toggle">
+                            <label class="toggle-switch" for="trim-toggle">
+                                <input type="checkbox" id="trim-toggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span class="trim-label">Recortar fragmento del video</span>
+                        </div>
+                        <div class="trim-inputs hidden" id="trim-inputs">
+                            <div class="time-input-group">
+                                <label for="time-start">Inicio</label>
+                                <input type="text" id="time-start" class="time-input" placeholder="0:00">
+                            </div>
+                            <div class="time-separator">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="5" y1="12" x2="19" y2="12"/>
+                                    <polyline points="12 5 19 12 12 19"/>
+                                </svg>
+                            </div>
+                            <div class="time-input-group">
+                                <label for="time-end">Fin</label>
+                                <input type="text" id="time-end" class="time-input" placeholder="1:30">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Download Button -->
+                    <button class="btn btn-download" id="btn-download">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <span>Descargar Video</span>
+                    </button>
+
+                    <!-- Progress Bar (hidden by default) -->
+                    <div class="progress-section hidden" id="progress-section">
+                        <div class="progress-info">
+                            <span class="progress-status" id="progress-status">Preparando descarga...</span>
+                            <span class="progress-percent" id="progress-percent">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- Success Message (hidden by default) -->
+                    <div class="success-message hidden" id="success-message">
+                        <div class="success-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <h3>¡Descarga Completada!</h3>
+                        <p>Tu video ha sido descargado exitosamente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="section-container">
+                <div class="section-header fade-in">
+                    <span class="section-tag">Funciones</span>
+                    <h2 class="section-title">Todo lo que <span class="gradient-text">necesitas</span></h2>
+                    <p class="section-subtitle">Potente, rápido y fácil de usar</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card fade-in delay-1" id="feature-quality">
+                        <div class="feature-icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <h3>Múltiples Calidades</h3>
+                        <p>Descarga en la mejor calidad disponible, 1080p, 720p o 480p según tus necesidades.</p>
+                    </div>
+
+                    <div class="feature-card fade-in delay-2" id="feature-audio">
+                        <div class="feature-icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18V5l12-2v13"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="16" r="3"/>
+                            </svg>
+                        </div>
+                        <h3>Extracción de Audio</h3>
+                        <p>Extrae solo el audio en formato MP3 a 192kbps. Perfecto para música y podcasts.</p>
+                    </div>
+
+                    <div class="feature-card fade-in delay-3" id="feature-trim">
+                        <div class="feature-icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="6" cy="6" r="3"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                                <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                                <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <h3>Recorte de Fragmentos</h3>
+                        <p>Descarga solo la parte que necesitas indicando el tiempo de inicio y fin.</p>
+                    </div>
+
+                    <div class="feature-card fade-in delay-4" id="feature-fast">
+                        <div class="feature-icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                        </div>
+                        <h3>Velocidad Máxima</h3>
+                        <p>Descarga a la velocidad máxima que permite tu conexión. Sin throttling.</p>
+                    </div>
+
+                    <div class="feature-card fade-in delay-5" id="feature-free">
+                        <div class="feature-icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                        </div>
+                        <h3>100% Gratis</h3>
+                        <p>Sin pagos, sin suscripciones, sin anuncios. Código abierto para siempre.</p>
+                    </div>
+
+                    <div class="feature-card fade-in delay-6" id="feature-open">
+                        <div class="feature-icon-wrap">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 18l6-6-6-6"/>
+                                <path d="M8 6l-6 6 6 6"/>
+                            </svg>
+                        </div>
+                        <h3>Open Source</h3>
+                        <p>Código fuente disponible en GitHub. Revisa, modifica y contribuye libremente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works" id="how-it-works">
+            <div class="section-container">
+                <div class="section-header fade-in">
+                    <span class="section-tag">Guía</span>
+                    <h2 class="section-title">Cómo <span class="gradient-text">Funciona</span></h2>
+                    <p class="section-subtitle">Tres simples pasos para descargar cualquier video</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-card fade-in delay-1" id="step-1">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Pega la URL</h3>
+                            <p>Copia el enlace del video de YouTube y pégalo en el campo de arriba.</p>
+                        </div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-card fade-in delay-2" id="step-2">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Elige la Calidad</h3>
+                            <p>Selecciona la calidad de video que deseas o elige solo audio MP3.</p>
+                        </div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-card fade-in delay-3" id="step-3">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Descarga</h3>
+                            <p>Haz clic en descargar y espera a que el video se guarde en tu computadora.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Code Preview Section -->
+        <section class="code-preview" id="code-preview">
+            <div class="section-container">
+                <div class="section-header fade-in">
+                    <span class="section-tag">Tecnología</span>
+                    <h2 class="section-title">Bajo el <span class="gradient-text">capó</span></h2>
+                    <p class="section-subtitle">Construido con Python y yt-dlp, la librería más potente para descargas</p>
+                </div>
+
+                <div class="code-window fade-in delay-1">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                        </div>
+                        <span class="code-filename">descargar_video.py</span>
+                        <button class="btn-copy" id="btn-copy-code" title="Copiar código">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <pre class="code-body"><code><span class="code-comment"># Descargar Videos de YouTube — 100% Gratis</span>
+<span class="code-keyword">import</span> <span class="code-module">yt_dlp</span>
+
+<span class="code-keyword">def</span> <span class="code-func">descargar_video</span>(url, calidad=<span class="code-string">"best"</span>):
+    formatos = {
+        <span class="code-string">"best"</span>:  <span class="code-string">"bestvideo+bestaudio/best"</span>,
+        <span class="code-string">"1080"</span>: <span class="code-string">"bestvideo[height<=1080]+bestaudio"</span>,
+        <span class="code-string">"720"</span>:  <span class="code-string">"bestvideo[height<=720]+bestaudio"</span>,
+        <span class="code-string">"480"</span>:  <span class="code-string">"bestvideo[height<=480]+bestaudio"</span>,
+        <span class="code-string">"mp3"</span>:  <span class="code-string">"bestaudio/best"</span>,
+    }
+
+    opts = {
+        <span class="code-string">"format"</span>: formatos.get(calidad),
+        <span class="code-string">"merge_output_format"</span>: <span class="code-string">"mp4"</span>,
+    }
+
+    <span class="code-keyword">with</span> yt_dlp.YoutubeDL(opts) <span class="code-keyword">as</span> ydl:
+        ydl.download([url])
+    <span class="code-keyword">print</span>(<span class="code-string">"✅ ¡Descarga completada!"</span>)</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span>YT Downloader PRO</span>
+                    </div>
+                    <p class="footer-desc">Herramienta de código abierto para descargar videos de YouTube en cualquier calidad.</p>
+                </div>
+                <div class="footer-links-grid">
+                    <div class="footer-col">
+                        <h4>Producto</h4>
+                        <ul>
+                            <li><a href="#downloader">Descargar</a></li>
+                            <li><a href="#features">Funciones</a></li>
+                            <li><a href="#how-it-works">Guía</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Proyecto</h4>
+                        <ul>
+                            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+                            <li><a href="#code-preview">Código</a></li>
+                            <li><a href="#">Licencia MIT</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Tecnologías</h4>
+                        <ul>
+                            <li><a href="https://www.python.org" target="_blank" rel="noopener">Python</a></li>
+                            <li><a href="https://github.com/yt-dlp/yt-dlp" target="_blank" rel="noopener">yt-dlp</a></li>
+                            <li><a href="https://ffmpeg.org" target="_blank" rel="noopener">FFmpeg</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 YT Downloader PRO. Hecho con ❤️ por Holman Chila</p>
+                <p class="footer-disclaimer">Este proyecto es solo con fines educativos.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+</html>
