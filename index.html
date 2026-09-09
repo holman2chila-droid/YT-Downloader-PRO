@@ -146,6 +146,18 @@
                         </div>
                     </div>
 
+                    <!-- Video Preview Card (hidden by default) -->
+                    <div class="video-preview-card hidden" id="video-preview">
+                        <div class="preview-thumbnail-wrap">
+                            <img src="" alt="Miniatura del video" id="preview-thumb" class="preview-thumb">
+                            <span class="preview-duration" id="preview-duration">0:00</span>
+                        </div>
+                        <div class="preview-info">
+                            <h4 class="preview-title" id="preview-title">Cargando información...</h4>
+                            <p class="preview-channel" id="preview-channel">Canal</p>
+                        </div>
+                    </div>
+
                     <!-- Quality Selection -->
                     <div class="quality-section">
                         <h3 class="quality-title">Elige la calidad</h3>
@@ -278,8 +290,11 @@
                                 <polyline points="22 4 12 14.01 9 11.01"/>
                             </svg>
                         </div>
-                        <h3>¡Descarga Completada!</h3>
-                        <p>Tu video ha sido descargado exitosamente.</p>
+                        <h3 id="success-title">¡Descarga Completada!</h3>
+                        <p id="success-desc">Tu archivo se ha transferido a tu carpeta de descargas.</p>
+                        <button class="btn btn-secondary" id="btn-reset-download" style="margin-top: 1.25rem;">
+                            <span>Descargar otro video</span>
+                        </button>
                     </div>
                 </div>
             </div>
