@@ -23,6 +23,12 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TEMP_DIR = os.path.join(BASE_DIR, "downloads_temp")
 os.makedirs(TEMP_DIR, exist_ok=True)
 
+# Asegurar que la carpeta bin con ffmpeg de Render esté en el PATH
+bin_dir = os.path.join(BASE_DIR, "bin")
+if os.path.isdir(bin_dir) and bin_dir not in os.environ.get("PATH", ""):
+    os.environ["PATH"] = f"{bin_dir}:{os.environ.get('PATH', '')}"
+
+
 # Almacén en memoria de trabajos de descarga
 # Estructura: job_id -> dict con estado, progreso, ruta de archivo, etc.
 jobs = {}
@@ -322,8 +328,12 @@ if __name__ == "__main__":
     print("Presiona Ctrl+C en la consola para detener el servidor")
     print("=" * 60)
 
-    # Abrir navegador automáticamente solo en el hilo principal
-    if os.environ.get("WERKZEUG_RUN_MAIN") != "true":
+    # Asegurar puerto dinámico para la nube (Render) o 5000 por defecto
+    puerto = int(os.environ.get("PORT", 5000))
+
+    # Abrir navegador automáticamente solo en local
+    if "PORT" not in os.environ and os.environ.get("WERKZEUG_RUN_MAIN") != "true":
         threading.Thread(target=abrir_navegador_auto, daemon=True).start()
 
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    app.run(host="0.0.0.0", port=puerto, debug=False)
+

@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: yt-downloader-pro
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn -w 2 --threads 4 -b 0.0.0.0:$PORT app:app"
+    plan: free
+    autoDeploy: true
