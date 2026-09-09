@@ -51,8 +51,37 @@ def limpiar_archivos_antiguos():
         pass
 
 
+def obtener_ydl_base_opts():
+    """Genera opciones de yt-dlp para eludir la detección de bots de YouTube en servidores en la nube."""
+    opts = {
+        "quiet": True,
+        "no_warnings": True,
+        # Clientes alternativos que no requieren login/cookies obligatorias en IPs de datacenter
+        "extractor_args": {
+            "youtube": {
+                "player_client": ["android", "ios", "web_creator", "mweb"]
+            }
+        }
+    }
+    
+    # Si existe cookies.txt o una variable de entorno con cookies, usarla
+    cookies_path = os.path.join(BASE_DIR, "cookies.txt")
+    if os.path.exists(cookies_path):
+        opts["cookiefile"] = cookies_path
+    elif os.environ.get("YOUTUBE_COOKIES"):
+        # Permite configurar cookies directamente como Environment Variable en Render
+        temp_cookies = os.path.join(TEMP_DIR, "env_cookies.txt")
+        if not os.path.exists(temp_cookies):
+            with open(temp_cookies, "w", encoding="utf-8") as f:
+                f.write(os.environ.get("YOUTUBE_COOKIES"))
+        opts["cookiefile"] = temp_cookies
+
+    return opts
+
+
 def convertir_a_segundos(tiempo):
     """Convierte 'ss', 'mm:ss' o 'hh:mm:ss' a segundos enteros."""
+
     if not tiempo:
         return 0
     tiempo = str(tiempo).strip()
@@ -94,12 +123,12 @@ def obtener_info_video():
     if not url:
         return jsonify({"error": "No se proporcionó una URL"}), 400
 
-    ydl_opts = {
+    ydl_opts = obtener_ydl_base_opts()
+    ydl_opts.update({
         "skip_download": True,
         "noplaylist": True,
-        "quiet": True,
-        "no_warnings": True,
-    }
+    })
+
 
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -182,14 +211,14 @@ def ejecutar_descarga(job_id, url, quality, trim_data):
     template_nombre = f"{job_id}_%(title).100B.%(ext)s"
     outtmpl = os.path.join(TEMP_DIR, template_nombre)
 
-    ydl_opts = {
+    ydl_opts = obtener_ydl_base_opts()
+    ydl_opts.update({
         "format": formato_elegido,
         "outtmpl": outtmpl,
         "noplaylist": True,
         "progress_hooks": [progress_hook],
-        "quiet": True,
-        "no_warnings": True,
-    }
+    })
+
 
     if quality == "mp3":
         ydl_opts["postprocessors"] = [{
